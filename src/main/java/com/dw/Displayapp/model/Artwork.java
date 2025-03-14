@@ -3,12 +3,14 @@ package com.dw.Displayapp.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 @ToString
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "artwork")
+public class Artwork {
 
 }
