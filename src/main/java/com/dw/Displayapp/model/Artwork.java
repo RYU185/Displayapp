@@ -1,8 +1,10 @@
 package com.dw.Displayapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,5 +14,20 @@ import lombok.*;
 @Entity
 @Table(name = "artwork")
 public class Artwork {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "artist_id", nullable = false)
+    private Artist artist;
+
+    @Column(name = "title")
+    private String title;
+
+    @OneToMany(mappedBy = "artwork")
+    private List<Display> displayList = new ArrayList<>();
+
 
 }

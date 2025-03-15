@@ -1,10 +1,10 @@
 package com.dw.Displayapp.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,10 +15,19 @@ import lombok.*;
 @Table(name = "hall")
 public class Hall {
     @Id
-    @Column(name = "hall_id")
-    private String hallId;
+    @Column(name = "id", nullable = false)
+    private String id;
 
+    @Column(name = "name", nullable = false)
+    private String name;
 
+    @Column(name = "location")
+    private String location;
 
+    @Column(name = "capacity")
+    private int capacity;
+
+    @OneToMany(mappedBy = "hall")
+    private List<Display> displayList = new ArrayList<>();
 
 }

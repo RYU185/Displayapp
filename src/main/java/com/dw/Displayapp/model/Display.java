@@ -34,8 +34,9 @@ public class Display {
     @Column(name = "price")
     private int price;
 
-    @Column(name = "hall_id")
-    private String hall;
+    @ManyToOne
+    @JoinColumn(name = "hall_id", nullable = false)
+    private Hall hall;
 
     @Column(name = "artwork_List")
     private List<String> artworkList = new ArrayList<>();

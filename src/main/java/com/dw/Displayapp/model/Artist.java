@@ -1,10 +1,11 @@
 package com.dw.Displayapp.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,6 +16,17 @@ import lombok.*;
 @Table(name = "artist")
 public class Artist {
     @Id
-    @
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "biography")
+    private String biography;
+
+    @OneToMany(mappedBy = "artist")
+    @Column(name = "artwork")
+    private List<Artwork> artworkList = new ArrayList<>();
 
 }
