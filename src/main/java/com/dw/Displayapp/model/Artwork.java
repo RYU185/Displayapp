@@ -19,15 +19,16 @@ public class Artwork {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "title")
+    private String title;
+
     @ManyToOne
     @JoinColumn(name = "artist_id", nullable = false)
     private Artist artist;
 
-    @Column(name = "title")
-    private String title;
-
-    @OneToMany(mappedBy = "artwork")
-    private List<Display> displayList = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "display_id", nullable = false)
+    private Display display;
 
 
 }
