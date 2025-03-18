@@ -1,6 +1,4 @@
 package com.dw.Displayapp.model;
-
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,7 +11,7 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Table(name = "artist")
+@Table(name = "작가")
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +20,12 @@ public class Artist {
     @Column(name = "name")
     private String name;
 
+    @OneToMany(mappedBy = "artist")
     @Column(name = "biography")
-    private String biography;
+    private List<Biography> biographyList;
+
+    @Column(name = "profile_img")
+    private String profile_img;
 
     @OneToMany(mappedBy = "artist")
     @Column(name = "artwork")

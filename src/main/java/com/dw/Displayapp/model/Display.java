@@ -13,11 +13,11 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Table(name = "display")
+@Table(name = "전시회")
 public class Display {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long displayId;
+    private Long id;
 
     @Column(name = "title")
     private String title;
@@ -37,13 +37,12 @@ public class Display {
     @Column(name = "price")
     private int price;
 
-    @ManyToOne
-    @JoinColumn(name = "hall_id", nullable = false)
-    private Hall hall;
+    @OneToMany(mappedBy = "display")
+    private List<Hall> hallList;
 
     @OneToMany(mappedBy = "display")
-    private List<Ticket> tickets = new ArrayList<>();
+    private List<Ticket> ticketList = new ArrayList<>();
 
     @OneToMany(mappedBy = "display")
-    private List<Artwork> artworks = new ArrayList<>();
+    private List<Artwork> artworkList = new ArrayList<>();
 }

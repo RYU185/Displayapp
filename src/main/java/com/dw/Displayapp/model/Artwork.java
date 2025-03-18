@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Table(name = "artwork")
+@Table(name = "작품")
 public class Artwork {
 
     @Id
@@ -29,6 +29,4 @@ public class Artwork {
     @ManyToOne
     @JoinColumn(name = "display_id", nullable = false)
     private Display display;
-
-
 }

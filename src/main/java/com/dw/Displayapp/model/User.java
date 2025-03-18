@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @ToString
 @Entity
-@Table(name = "user")
+@Table(name = "유저")
 public class User {
 
     @Id
@@ -46,4 +46,5 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "authority_id")
     )
     private List<Authority> authorityList = new ArrayList<>();
+
 }

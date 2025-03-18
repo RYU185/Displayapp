@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Table(name = "authority")
+@Table(name = "권한")
 public class Authority {
     @Id
     @Column(name = "authority_name", length = 255)

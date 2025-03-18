@@ -12,22 +12,18 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Table(name = "hall")
+@Table(name = "전시관")
 public class Hall {
     @Id
-    @Column(name = "id", nullable = false)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "location")
-    private String location;
+    @ManyToOne
+    @JoinColumn(name = "display_id")
+    private Display display;
 
-    @Column(name = "capacity")
-    private int capacity;
-
-    @OneToMany(mappedBy = "hall")
-    private List<Display> displayList = new ArrayList<>();
 
 }
