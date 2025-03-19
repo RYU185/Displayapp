@@ -26,6 +26,9 @@ public class Ticket {
     @JoinColumn(name = "display_id", nullable = false)
     private Display display;
 
-    @Column(nullable = false)
+    @Column(name = "purchase_date", nullable = false)
     private LocalDate purchaseDate;
+
+    @Column(name = "expiration_date", nullable = false)
+    private LocalDate expirationDate;
 }

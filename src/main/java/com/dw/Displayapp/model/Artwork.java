@@ -3,6 +3,7 @@ package com.dw.Displayapp.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,9 @@ public class Artwork {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "description")
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "artist_id", nullable = false)
     private Artist artist;
@@ -29,4 +33,11 @@ public class Artwork {
     @ManyToOne
     @JoinColumn(name = "display_id", nullable = false)
     private Display display;
+
+    @Column(name = "image_url")
+    private String imgUrl;
+
+    @Column(name = "created_year")
+    private LocalDate createdYear;
+
 }
